@@ -13,7 +13,9 @@ describe('Sign Up', () => {
     // submit the form
     cy.get('input[type="submit"]').click()
     // the "Saved!" message should appear
-    cy.get('input[value="Saved!"]').should('be.visible')
+    // level 1 fix add timeout to hanlde
+    //level 2 install pluggin  to repreat quick test to cf it work event mutiple time
+    cy.get('input[value="Saved!"]',{timeout: 10000}).should('be.visible')
     // and the list of registered people should contain the new person
     // including the email and the course name
     cy.get('li').should('contain', 'Some Name - some@email.com - core - git-it')
